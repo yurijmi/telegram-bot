@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
+
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
+
 gemspec
+
+gem 'curb', github: 'yurijmi/curb'
 
 group :development do
   gem 'appraisal', '~> 2.2'

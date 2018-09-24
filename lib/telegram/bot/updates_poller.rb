@@ -70,7 +70,7 @@ module Telegram
       def fetch_updates(offset = self.offset)
         response = bot.async(false) { bot.get_updates(offset: offset, timeout: timeout) }
         response.is_a?(Array) ? response : response['result']
-      rescue Timeout::Error
+      rescue Curl::Err::TimeoutError
         log { 'Fetch timeout' }
         nil
       end
